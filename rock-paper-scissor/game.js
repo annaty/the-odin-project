@@ -1,3 +1,7 @@
+const rock = "rock";
+const paper = "paper";
+const scissor = "scissor";
+
 let playerPoints = 0;
 let computerPoints = 0;
 let message = "";
@@ -14,19 +18,14 @@ function computerPlay() {
     }
 }
 
-function playerPlay(move) {
-    return move
-}
+const event_handler1 = (playRound, rock) => playRound(rock);
 
-document.getElementById("button-rock").addEventListener("click", playerPlay("rock")); 
-document.getElementById("button-paper").addEventListener("click", playerPlay("paper")); 
-document.getElementById("button-scissor").addEventListener("click", playerPlay("scissor"));
-document.button.addEventListener("click", game());
+document.getElementById("button-rock").addEventListener("click", event_handler1); 
+document.getElementById("button-paper").addEventListener("click", playRound("paper")); 
+document.getElementById("button-scissor").addEventListener("click", playRound("scissor"));
 
-function playRound() {
-    // let playerSelection = window.prompt("Enter your move (rock, paper or scissor)");
-    let computerSelection = computerPlay();
-    playerSelection.toLowerCase();
+function playRound(playerSelection) {
+    let computerSelection = computerPlay;
 
     if (playerSelection === "rock" && computerSelection === "scissor") {
         playerPoints++;
@@ -51,11 +50,6 @@ function playRound() {
     } else {
         message = "please input a correct value"
     }
-}
-
-function game() {
-    for (i = 0; i < 5; i++) {
-        playRound();
-        document.getElementById("statusMessage").innerHTML = message;
-    }
+    
+    document.getElementById("statusMessage").innerHTML = message;
 }
