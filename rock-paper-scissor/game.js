@@ -1,3 +1,7 @@
+let playerPoints = 0;
+let computerPoints = 0;
+let message = "";
+
 function computerPlay() {
     let randomNumber = Math.floor(Math.random() * 3)
     switch (randomNumber) {
@@ -6,37 +10,52 @@ function computerPlay() {
         case 1:
             return "paper";
         case 2:
-        return "scissor";
+            return "scissor";
     }
 }
 
-function playRound(playerSelection, computerSelection) {
+function playerPlay(move) {
+    return move
+}
+
+document.getElementById("button-rock").addEventListener("click", playerPlay("rock")); 
+document.getElementById("button-paper").addEventListener("click", playerPlay("paper")); 
+document.getElementById("button-scissor").addEventListener("click", playerPlay("scissor"));
+document.button.addEventListener("click", game());
+
+function playRound() {
+    // let playerSelection = window.prompt("Enter your move (rock, paper or scissor)");
+    let computerSelection = computerPlay();
     playerSelection.toLowerCase();
+
     if (playerSelection === "rock" && computerSelection === "scissor") {
-        return "The player wins! Rock beats scissor"
+        playerPoints++;
+        message = "The player wins! Rock beats scissor"
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        return "The computer wins! Paper beats rock"
+        computerPoints++;
+        message = "The computer wins! Paper beats rock"
     } else if (playerSelection === "paper" && computerSelection === "scissor") {
-        return "The computer wins! Scissor beats paper"
+        computerPoints++;
+        message = "The computer wins! Scissor beats paper"
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        return "The player wins! Paper beats rock"
+        playerPoints++;
+        message = "The player wins! Paper beats rock"
     } else if (playerSelection === "scissor" && computerSelection === "paper") {
-        return "The player wins! Scissor beats paper"
+        playerPoints++;
+        message = "The player wins! Scissor beats paper"
     } else if (playerSelection === "scissor" && computerSelection === "rock") {
-        return "The computer wins! Rock beats scissor"
+        computerPoints++;
+        message = "The computer wins! Rock beats scissor"
     } else if (playerSelection === computerSelection) {
-        return "It's a tie!"
+        message = "It's a tie!"
     } else {
-        return "please input a correct value"
+        message = "please input a correct value"
     }
 }
 
-function game(playerSelection, computerSelection) {
+function game() {
     for (i = 0; i < 5; i++) {
-        return playRound(playerSelection, computerSelection)
+        playRound();
+        document.getElementById("statusMessage").innerHTML = message;
     }
 }
-
-const pMove = window.prompt("Enter your move (rock, paper or scissor)");
-const cMove = computerPlay();
-console.log(game(pMove, cMove));
