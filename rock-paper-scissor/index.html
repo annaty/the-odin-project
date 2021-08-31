@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/public/stylesheets/reset.css">
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, paper, scissor game</title>
 </head>
 <body>
-    <h1>Rock, paper, scissor game</h1>
-    <h2>Make a pick</h2>
     <div class="content">
-        <div class="buttons">
-            <button class="button" id="button-rock">Rock</button>
-            <button class="button" id="button-paper">Paper</button>
-            <button class="button" id="button-scissor">Scissor</button>
+        <div class="user-side">
+            <h1>Rock paper scissor game</h1>
+            <span class="middle--left">v</span>
+            <div class="buttons">
+                <button class="button" id="button-rock">Rock</button>
+                <button class="button" id="button-paper">Paper</button>
+                <button class="button" id="button-scissor">Scissor</button>
+            </div>
+            <h2>Human</h2>
+        </div>
+        <div class="computer-side">
+            <h2>Computer</h2>
+            <span class="middle--right">s</span>
+            <div id="computer-move"></div>
         </div>
         <p id="statusMessage"></p>
     </div>
+    
     <script type="text/javascript" src="game.js"></script>
 </body>
 </html>
